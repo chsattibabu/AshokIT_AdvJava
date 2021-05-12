@@ -1,0 +1,54 @@
+Connection Pooling:- 
+
+org.apache.commons.dbcp2.BasicDataSource
+
+Need to download 3 jars.
+DBCP2
+https://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi
+COMMON POOL
+https://commons.apache.org/proper/commons-pool/download_pool.cgi
+COMMON LOGGER
+
+https://commons.apache.org/proper/commons-logging/download_logging.cgi
+
+1. dbcp2 jar file
+2. create a class for Datasource connection.
+3. private constuctor(){
+}
+4. singleton class
+5. private static final BasicDataSource datasource=new BasicDataSource;
+6. static{
+		datasource.setDriverManager("com.mysql.jdbc.Driver)
+		datasource.setUrl("jdbc:mysql://localhost:3306/sattidb");
+		datasource.setUserName("root");
+		datasource.setPassword("Satti");
+
+}
+public static Connection getConnection(){
+
+
+return datasource.getConnection();
+
+}
+---------------------------------------------------------------------------------
+inserting BLOB ,CLOB
+---------------------------------
+Rowset
+--------------
+Resultset----
+
+rs.next();
+
+
+
+
+
+
+
+
+
+
+
+
+
+

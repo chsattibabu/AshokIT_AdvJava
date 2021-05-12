@@ -1,0 +1,74 @@
+Transaction Management in JDBC
+------------------------------
+Satti Babu Chittala
+7+ years of Experience:
+
+Transaction:---------
+Booking a Ticket
+1. Select the movie
+2. Select the Seats
+3. Amount
+4. Tickets 
+
+2000--- Transaction
+Satti Babu 2000 ---- Sai
+2000 will be debited from my account
+10,000(12000-2000)
+
+Sai account will be credited with 2000
+14000(12000+2000)
+Googlepay
+Swiggy
+Flipkart
+1. What is a transaction?
+2. What are the properties of a Transction?
+3. Types of Transaction?
+4. How to implement the Transactions in jdbc
+
+Transaction:- It is a Combination of related Operations into a single Unit.A group of related operations either all or none. 
+
+Properties of the Transaction:- 
+1.ACID properties in DBMS
+
+T1----T99--T100
+
+A--- Atomicity ----- Either all or None--- Should not be resumed it should restarted
+C-- Consistancy ------Before Starting the Transaction and after completing the Transaction the sum of the amount should be same. 
+A--- B
+A-1000 --B
+Read of A(1000)
+Write of A(10000-1000) 9000
+Read the B Details()
+Write the B(2000+1000) 3000
+Rollback
+I--- Isolation---------All the operations should be done independently.
+D--- Durability----- Once transction has Completed and changes are done in the database.Transctions should be perminent. 
+
+Different Types of Transactions:- 
+1. Local Transctions:-if the Transaction happens on a single DB is nothing local transactions(JDBC)
+ 
+2. Global Transctions:- Multiple Databases.(EJB,Spring);
+
+
+
+My account is in ICICI --- Inter bank Communication
+I have withdrawn money from HDFC ATM --- Distributed Applications
+-----------------------------------------------------------------------------
+How to implement the Transction management in JDBC?
+con.setAutoCommit(false);
+con.commit();
+con.rollback();
+
+
+
+
+
+
+
+
+
+
+
+
+
+

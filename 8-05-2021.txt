@@ -1,0 +1,107 @@
+Yesterday's Session
+----------------------------------------------------------------
+Transaction Management:-
+
+1.How to implement the Transaction Management:-
+2.Connetion Pooling?
+
+con.setAutoCommit(false); //
+con.commit();
+con.rollback();
+savePoint;..
+
+Connection con=DriverManager.getConnection(url,uname,pwd);
+
+con.setAutoCommit(false);
+
+try{
+PreparedStatement statment=con.prepareStatement("insert into tablename ?,?");
+statment.setInt(101);
+statment.setString("Sattibabu");
+statement.executeQuery();
+con.commit();
+}catch(SQLException se){
+con.rollback();
+}
+
+Connection Pooling:- 
+--------------------------------------------------------
+bench----trained, ready to use.......they will use in particular project and 
+in my project --- i have 100 classes..
+Connecton con=D
+1000--------con.close();
+
+javax.DataSource
+
+DataSource datasource="""
+
+
+Connection con=
+
+
+singleton
+<
+MYSQL
+JNDI
+>
+<
+ORACLE
+
+>
+Reflection API:-
+change the behavior of a variable or method or class. 
+public.
+private:- 
+default.
+protected.
+
+class Employee{
+private String empName;
+private int age;
+private int salary;
+
+
+}
+
+
+Employee emp=new Employee();
+emp.setSalary();
+
+Class.forName("");
+Object obj=emp.newInstance();
+Field field=obj.getDeclaredField("age");
+filed.setAccesible(true);
+field.set(field,25);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
