@@ -1,0 +1,134 @@
+Yesterday's Sesion:-
+--------------------------------------------------
+dbcp2
+common pool
+common logging
+-------------------------------------------------
+Rowset:- 
+
+It is also an interface. 
+ResultSet               vs          	RowSet
+1. Forward Nature			Scrollable
+2. It should be connected to DB		Disconnected nature
+3. It cant be serializable 		Possibility is there
+4. rs.exexuteQuery			RowSetFactory rsf=RowSetProvider.newFactory();
+5. By default it is readonly nature 	updatable
+
+
+Types of RowSets:-
+1. Connected RowSet:- DB connection must be there to work with RowSet. such type of RowSets are 
+called Connected RowSet.
+ex:- JdbcRowSet
+
+2. Disconnected RowSet:- DB connection is not required it is called disconnected RowSet. 
+	1. CachedRowSet
+	2. WebRowSet
+	3. JoinRowSet
+	4. FilteredRowSet
+How to create a RowSet object
+----------------------------------------
+RowSetFactory rsf=RowSetProvider.newFactory();
+
+JdbcRowSet jr=rs.createJdbcRowSet();
+WebRowSet jr=rs.createWebRowSet();
+JoinRowSet jr=rs.createJoinRowSet();
+FilteredRowSet jr=rs.createFilteredRowSet();
+CachedRowSet jr=rs.createCachedRowSet();
+-----------------------------------------------------------
+java.sql ----ResultSet
+javax.sql --- Rowset
+javax.sql.rowset ---- 
+
+Implementing Jdbc
+package com.satti.jdbcpackage;
+
+import java.sql.SQLException;
+
+import javax.sql.rowset.JdbcRowSet;
+import javax.sql.rowset.RowSetFactory;
+import javax.sql.rowset.RowSetProvider;
+
+public class JDBCRowSetImpl {
+
+	public static void main(String args[]) throws SQLException {
+		
+		RowSetFactory rsf=RowSetProvider.newFactory();
+		
+		JdbcRowSet jrs=rsf.createJdbcRowSet();
+		
+		jrs.setUrl("jdbc:mysql://localhost:3306/sattidb");
+		jrs.setUsername("root");
+		jrs.setPassword("Satti");
+		
+		
+		jrs.setCommand("select * from employees");
+		jrs.execute();
+		
+		while(jrs.next()) {
+			System.out.println(jrs.getInt(1)+"  "+jrs.getString(2));
+			
+			
+		}
+		while(jrs.absolute(1)) {
+			System.out.println(jrs.getRow());
+			
+			
+			
+		}
+		while(jrs.previous()) {
+			System.out.println(jrs.getRow());
+			
+		}
+	
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
