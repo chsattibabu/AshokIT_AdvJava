@@ -1,0 +1,76 @@
+Connection Pooling
+
+------
+dbcp2
+common pool
+
+common logger
+
+RowSet:- 
+
+ResultSet and RowSet both are Interface
+ResultSet is not serializable
+RowSet 
+
+By nature ResultSet is in forward only 
+
+RowSet(Interface)
+
+Connected RowSet
+JdbcRowSet ----Connected, Scrollable next(),previous(),absolute(1), Updatable
+
+Disconnected RowSet.
+CachedRowSet :- Disconnected, Scrollable,Updatable,
+WebRowSet:- Disconnected,Scrollable, 
+Updatable diff:- wrs.writexml(),readXml();
+
+JoinRowSet:- Its combined result of two same type of rowsets
+100,50 records
+Employee:- empId, empName, salary, deptId
+Department:- deptId,deptName,HRname
+
+jrs.addRowSet(crs,4)
+jrs.addRowSet(crs2,1);
+
+
+FilteredRowSet:- 
+frs.setFilter(f);
+
+
+---------------------------------------------------------
+Collection API--- Group of Classes to work 
+Jdbc API
+Reflection API :-
+Image ---- of a class
+
+javac Helloworld.java
+byte code
+java Helloworld
+
+java.lang.refelect.Member
+Filed
+Constructor
+Array
+---------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FilteredRowSet
+
+
+
+

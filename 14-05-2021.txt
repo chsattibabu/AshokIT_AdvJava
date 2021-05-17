@@ -1,0 +1,84 @@
+
+
+
+java objects--------bytes
+FileInputStream
+
+Serialization
+Deseriazaion
+
+stream --->java object 
+
+java object----> /json/xml/text   -----
+
+not scrollable ----->
+forward
+
+not updatable---->updatable
+
+-----------------------------------------------------
+RowSets:-
+Types:-
+1. Connected RowSet:- JdbcRowSet
+
+JdbcRowSet:-Serializable,Updatable,Scrollable
+
+2. Disconnected RowSet:-CachedRowSet,WebRowSet,JoinRowSet,FilteredRowSet.
+
+
+CachedRowSet:- 
+Serializable,Updatable,Scrollable
+Disconnected
+RowSetFactory rsf=new RowSet.newFactory();
+
+JdbcRowSet jrs=rsf.createJdbcRowSet();
+
+
+rsf.execute();
+
+WebRowSet:-Serializable,Updatable,Scrollable
+Disconnected
+
+feature is:-xml,read xml
+
+FileWriter fs=new FileWriter();
+rsf.writeXml(fs);
+
+rsf.readXml(fs);
+
+JoinRowSet:-
+
+Employee(empId,empName,salary,deptId);
+Department(deptId,deptName);
+
+rs.addRowSet(rsf,4);
+rs.addRowSet(rsf1,1);
+
+FilteredRowSet:-
+----------------------------
+>25000 and <75000
+rs.setFiler();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
