@@ -1,0 +1,112 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.sql.rowset.CachedRowSet;
+import javax.sql.rowset.RowSetFactory;
+import javax.sql.rowset.RowSetProvider;
+
+public class CachedRowSetDemo {
+	
+	
+	public static void main(String args[]) throws SQLException{
+		Connection con=Database.getConnection();
+		
+		
+		RowSetFactory rsf=RowSetProvider.newFactory();
+		CachedRowSet crs=rsf.createCachedRowSet();
+		
+		PreparedStatement ps=con.prepareStatement("Select * from Employee");
+		
+		ResultSet rs=ps.executeQuery();
+		crs.populate(rs);
+		
+		con.close();
+		
+		while(crs.next()){
+			System.out.println(crs.getInt(1)+ "  "+crs.getString(2)+ " "+ crs.getInt(3));
+		}
+		
+-----------------------------------------
+Connection Pooling
+---------------------------------------		
+package com.sattibabu.jdbc;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import org.apache.commons.dbcp2.BasicDataSource;
+
+public final class Database {
+
+    private static final BasicDataSource dataSource = new BasicDataSource();
+
+    static {
+        //dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/sattidb");
+        dataSource.setUsername("root");
+        dataSource.setPassword("Satti");
+    }
+
+    private Database() {
+        //
+    }
+
+    public static Connection getConnection() throws SQLException {
+        return dataSource.getConnection();
+    }
+
+}
+---------------------
+package com.sattibabu.jdbc;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.sql.rowset.JdbcRowSet;
+import javax.sql.rowset.RowSetFactory;
+import javax.sql.rowset.RowSetProvider;
+
+public class JdbcRowSetDemo {
+	
+	public static void main(String arg[]) throws SQLException{
+		
+		Connection con=Database.getConnection();
+		
+		RowSetFactory rsf=RowSetProvider.newFactory();
+		
+		JdbcRowSet jrs=rsf.createJdbcRowSet();
+		
+		jrs.setUrl("jdbc:mysql://localhost:3306/sattidb");
+		jrs.setUsername("root");
+		jrs.setPassword("Satti");
+		//jrs.setDataSourceName(name);
+		
+		jrs.setCommand("select * from Employee");
+		
+		jrs.execute();
+		
+		System.out.println("Employee details in forward direction ");
+		
+		while(jrs.next()){
+			System.out.println(jrs.getInt(1)+ "  "+jrs.getString(2)+ " "+ jrs.getInt(3));
+		}
+		
+		System.out.println("Employee details in reverse direction ");
+		
+		while(jrs.previous()){
+			System.out.println(jrs.getInt(1)+ "  "+jrs.getString(2)+ " "+ jrs.getInt(3));
+		}
+		
+		
+		System.out.println("Random Access");
+		jrs.absolute(4);
+		System.out.println(jrs.getInt(1)+ "  "+jrs.getString(2)+ " "+ jrs.getInt(3));
+		//System.out.println(jrs.getClass().getName());
+		
+		
+		
+	}
+
+}
