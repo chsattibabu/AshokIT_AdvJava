@@ -1,0 +1,105 @@
+Today's Class 19-05-2021
+----------------------------------------------
+
+jrs.addRowSet(crs,4);
+jrs.addRowSet(crs,1);
+
+
+WebRowSet wrs=rsf.createWeb(0;
+
+wrs.writeXml();
+
+filteredRowSet()
+----------------------------------------------------
+How to deal with Two different Databases:-
+---------------------------------------------------
+clas.forName()
+DriverManger.getConnection()
+
+---------------------------------------
+ResourceBundle......java.util
+-----------------------------------
+propertries
+FI
+Properties 
+DriverManager.getConnection();
+
+Satti
+
+sattibabu
+
+
+50 class 
+Propeties------
+Properties p=new Properties();
+FileInputStream fio=new FileInputStream("db.txt");
+p.load(fio);
+
+p.getProperty("driver");
+
+
+
+ResoureBundle rs=ResourceBundle.getBundle("db.txt");
+rs.getString("driver");
+
+ResourceBundle rb=ResourceBundle.getBundle("dbfile");
+System.out.println(rb.getString("driver"));
+
+package com.satti.jdbcpackage;
+
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class MultipleDatabasesDemo {
+	
+	public static void main(String args[] ) throws ParseException {
+		
+		//DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
+		//DriverManager.getConnection(url,userName,pwd);
+		
+		
+		//DriverManager.registerDriver(new com.mysql.jdbc.driver());
+		
+		//Employee empId, joiningDate date, empSalary;
+		
+		
+		String str="12-05-2021";
+		
+		Date currDate=new SimpleDateFormat("dd-mm-yyyy").parse(str);
+		
+		
+		java.sql.Date sqlDate=new java.sql.Date(currDate.getTime());
+		
+		//PreparedStatement ps=con.prepareStatement();
+		//ps.setDate(1, sqlDate);
+		
+		
+		
+		///
+		//Resource Bundle
+	
+		
+	}
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
