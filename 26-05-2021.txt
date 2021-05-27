@@ -1,0 +1,89 @@
+Today's Session
+------------------------------------------------------------------
+Servlets Introduction
+---------------------------------------------------------
+
+
+Types of Applcations:-
+------------------------
+1. Desktop Applications-- java SE 
+2. Web Applications --Internet ,url either chrome or firefox ----Java EE ,Servlets,JSP
+3. Distributed Applications --- One Application is going to 
+communicate with another application. Interoperability
+
+Aadharcard Application--- is developed by TCS
+
+Passport Application. IBM 
+12345566888--->
+
+
+Servlet:- 
+What is a Servlet?
+A servlet is a class which takes the Request from the client and
+ process the request sends response to that Request. 
+
+class Student{
+
+
+}
+class Student extends HttpServlet{
+void doGet(HttpServletRequest req,HttpServletResponse response){
+
+
+
+}
+
+void doPost(HttpServletRequest req, HttpServletResponse response){
+
+
+
+}
+void service(HttpServletRequest req, HttpServletResponse response){
+
+
+}
+
+}
+
+
+web.xml
+
+<web-app>
+<servlet>
+<servlet-name>AddStudentData</servlet-name>
+
+<servlet-class>AddStudent</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+<servlet-name>AddStudentData</servlet-name>
+<url-mapping>/addStudent</url-mapping>
+
+</servlet-mapping>
+
+
+<web-app>
+
+---------------
+server
+---------------
+war file 
+
+servers------tomcat,glassfish,websphere
+
+
+Eclipse Tomcat server Installation
+
+
+
+
+
+
+
+
+
+
+
+
